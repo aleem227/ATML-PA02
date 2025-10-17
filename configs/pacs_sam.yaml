@@ -1,0 +1,25 @@
+data:
+  root: data/PACS
+  sources: [Art, Cartoon, Photo]
+  target: Sketch
+  img_size: 224
+  num_classes: 7
+
+model:
+  backbone: resnet50
+  pretrained: true
+  freeze_backbone: false
+
+training:
+  epochs: 20
+  batch_size: 32
+  num_workers: 4
+  lr: 0.0001
+  wd: 0.0001
+  amp: true
+  seed: 42
+  outdir: runs
+
+method:
+  name: sam          # SAM on top of ERM
+  rho: 0.05          # SAM radius
